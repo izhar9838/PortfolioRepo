@@ -20,7 +20,7 @@ const projects = [
   },
   {
     title: 'Shalu Travels',
-    description: 'A Travel Webiste to permote tourism and travel packages.',
+    description: 'A Travel Webiste to promote tourism and travel packages.',
     link: '/projects/project-three',
     image: 'src/assets/proj-img/shalu.png', // Green background
   },

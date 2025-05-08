@@ -1,5 +1,4 @@
-
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useRef } from 'react';
 import { FaBars, FaTimes } from 'react-icons/fa';
 import { motion } from 'framer-motion';
 import { Link } from 'react-router-dom';
@@ -24,10 +23,28 @@ const Logo = () => (
 
 const Header = () => {
   const [isOpen, setIsOpen] = useState(false);
+  const menuRef = useRef(null);
 
   const toggleMenu = () => {
     setIsOpen(!isOpen);
   };
+
+  // Handle clicks outside the mobile menu
+  useEffect(() => {
+    const handleClickOutside = (event) => {
+      if (menuRef.current && !menuRef.current.contains(event.target)) {
+        setIsOpen(false);
+      }
+    };
+
+    if (isOpen) {
+      document.addEventListener('mousedown', handleClickOutside);
+    }
+
+    return () => {
+      document.removeEventListener('mousedown', handleClickOutside);
+    };
+  }, [isOpen]);
 
   // Handle screen size changes
   useEffect(() => {
@@ -69,20 +86,8 @@ const Header = () => {
     }),
   };
 
-  // Animation for nav items on hover
-  const navItemVariants = {
-    hover: {
-      y: -2,
-      color: '#FFD700', // Gold on hover
-      transition: { duration: 0.2 },
-    },
-  };
-
   return (
-    <header
-      className="min-w-full bg-[#569BA9] shadow-md m-0 relative"
-      
-    >
+    <header className="min-w-full bg-[#569BA9] shadow-md m-0 relative">
       <nav className="container min-w-full mx-auto px-2 py-2 flex items-center justify-between max-h-[50px]">
         <div className="logo">
           <Logo />
@@ -92,13 +97,12 @@ const Header = () => {
             item.status ? (
               <motion.div
                 key={item.name}
-                whileHover="hover"
-
+                whileHover={{ y: -2, color: '#FFD700', transition: { duration: 0.2 } }}
                 className="relative"
               >
                 <Link
                   to={item.link}
-                  className="font-medium pl-[32px] text-white hover:text-orange-50  transition-colors text-base tracking-wide"
+                  className="font-medium pl-[32px] text-white hover:text-orange-50 transition-colors text-base tracking-wide"
                   style={{ fontFamily: "'Poppins', sans-serif" }}
                 >
                   {item.name}
@@ -114,7 +118,7 @@ const Header = () => {
           )}
         </div>
         <button
-          className="md:hidden text-gray-100 hover: flex items-center justify-center"
+          className="md:hidden text-gray-100 hover:flex items-center justify-center"
           onClick={toggleMenu}
           aria-label="Toggle menu"
         >
@@ -123,8 +127,8 @@ const Header = () => {
       </nav>
       {isOpen && (
         <motion.div
-          className="md:hidden bg-[#569BA9] text-center w-full h-auto z-101 absolute left-0"
-          
+          ref={menuRef}
+          className="md:hidden bg-[#569BA9] text-center w-full h-auto z-10 absolute left-0"
           variants={menuVariants}
           initial="hidden"
           animate="visible"
