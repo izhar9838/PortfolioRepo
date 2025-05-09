@@ -10,19 +10,19 @@ const projects = [
     title: 'Portfolio Website',
     description: 'A web app built with React and Tailwind CSS, showcasing modern UI.',
     link: '/',
-    image: 'src/assets/proj-img/portfolio.png', // Coral background
+    image: 'src/assets/proj-img/portfolio.png', 
   },
   {
     title: 'School Website',
     description: 'A full-stack application with Spring Boot and React for managing school records.',
-    link: '/projects/project-two',
-    image: 'src/assets/proj-img/school.png', // Purple background
+    link: 'https://smcentral.netlify.app',
+    image: 'src/assets/proj-img/school.png', 
   },
   {
     title: 'Shalu Travels',
     description: 'A Travel Webiste to promote tourism and travel packages.',
-    link: '/projects/project-three',
-    image: 'src/assets/proj-img/shalu.png', // Green background
+    link: 'https://shalu-travels.netlify.app',
+    image: 'src/assets/proj-img/shalu.png',
   },
   {
     title: 'Project Four',
@@ -118,6 +118,7 @@ const Projects = () => {
                   <div className="bg-[#1A3C5A] rounded-b-lg px-2 py-1">
                     <Link
                       to={project.link}
+                      target='_blank'
                       className="text-[#569BA9] hover:text-[#97C5CE] font-medium transition-colors text-xs sm:text-sm whitespace-nowrap block text-center"
                       style={{ fontFamily: "'Poppins', sans-serif" }}
                     >
