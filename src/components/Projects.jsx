@@ -15,13 +15,13 @@ const projects = [
   {
     title: 'School Website',
     description: 'A full-stack application with Spring Boot and React for managing school records.',
-    link: 'https://smcentral.netlify.app',
+    link: import.meta.env.VITE_SCHOOL_WEBSITE,
     image: 'src/assets/proj-img/school.png', 
   },
   {
     title: 'Shalu Travels',
     description: 'A Travel Webiste to promote tourism and travel packages.',
-    link: 'https://shalu-travels.netlify.app',
+    link: import.meta.env.VITE_SHALU_TRAVELS,
     image: 'src/assets/proj-img/shalu.png',
   },
   {
