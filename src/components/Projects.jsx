@@ -1,7 +1,11 @@
 
-import React, { useState } from 'react';
+import  { useState } from 'react';
 import { motion } from 'framer-motion';
 import { Link } from 'react-router-dom';
+import SchoolWebsite from '../assets/proj-img/school.png';
+import ShaluTravels from '../assets/proj-img/shalu.png';
+import PortfolioWebsite from '../assets/proj-img/portfolio.png';
+import SiddiqueFood from '../assets/proj-img/food.jpeg';
 
 
 // Sample project data with images
@@ -10,25 +14,25 @@ const projects = [
     title: 'Portfolio Website',
     description: 'A web app built with React and Tailwind CSS, showcasing modern UI.',
     link: '/',
-    image: 'src/assets/proj-img/portfolio.png', 
+    image: PortfolioWebsite, 
   },
   {
     title: 'School Website',
     description: 'A full-stack application with Spring Boot and React for managing school records.',
     link: import.meta.env.VITE_SCHOOL_WEBSITE,
-    image: 'src/assets/proj-img/school.png', 
+    image: SchoolWebsite, 
   },
   {
     title: 'Shalu Travels',
     description: 'A Travel Webiste to promote tourism and travel packages.',
     link: import.meta.env.VITE_SHALU_TRAVELS,
-    image: 'src/assets/proj-img/shalu.png',
+    image: ShaluTravels,
   },
   {
-    title: 'Project Four',
-    description: 'An e-commerce platform with payment integration and responsive design.',
-    link: '/projects/project-four',
-    image: 'https://via.placeholder.com/150/F7B801/FFFFFF?text=Project+4', // Yellow background
+    title: 'Siddique Food',
+    description: 'A food website where you can be customer or restaurant owner.',
+    link: import.meta.env.VITE_SIDDIQUE_FOOD,
+    image: SiddiqueFood, // Yellow background
   },
 ];
 

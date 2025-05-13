@@ -7,4 +7,7 @@ export default defineConfig({
   plugins: [
     tailwindcss(),
     react()],
+    server: {
+    historyApiFallback: true, // Enable SPA routing in dev server
+  },
 })
